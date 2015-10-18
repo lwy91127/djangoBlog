@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="zh-CN">
 
@@ -7,10 +8,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
   <title>Lwy Blog</title>
-
+  <link href='http://fonts.useso.com/css?family=Lato:300,400,300italic,400italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.useso.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   <!-- Bootstrap -->
-  <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="http://picturebag.qiniudn.com/blog.css">
+  <!-- Global CSS -->
+  <link rel="stylesheet" href="{% static 'assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+  <!-- Plugins CSS -->
+  <link rel="stylesheet" href="{% static 'assets/plugins/font-awesome/css/font-awesome.css' %}">
+  
+  <link rel="stylesheet" href="/static/assets/plugins/github-activity/dist/octicons/octicons.min.css">
+  <!-- Theme CSS -->
+  <link id="theme-style" rel="stylesheet" href="/static/assets/css/styles.css">
+  <!-- <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet"> -->
+  <!-- <link rel="stylesheet" href="http://picturebag.qiniudn.com/blog.css"> -->
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -20,36 +30,104 @@
     <![endif]-->
 </head>
 
-<body role="document" style="padding-top: 70px;">
-  <nav class="navbar navbar-inverse navbar-fixed-top">
+<body>
+  <!-- ******HEADER****** -->
+  <header class="header">
     <div class="container">
-      <div id="navbar" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-          <li class="active">
-            <a href="#">主页</a>
-          </li>
-          <li>
-            <a href="#about">关于</a>
-          </li>
-          <li>
-            <a href="#contact">联系</a>
-          </li>
+      <img class="profile-image img-responsive pull-left" src="/static/assets/images/avatar.png" alt="lwy" />
+      <div class="profile-content pull-left">
+        <h1 class="name">Lu</h1>
+        <h2 class="desc">Breath and Life</h2>
+        <ul class="social list-inline">
+          <li><a href="https://github.com/lwy91127" target="_blank"><i class="fa fa-github"></i></a></li>
+          <li><a href="https://twitter.com/luwangyan" target="_blank"><i class="fa fa-twitter"></i></a></li>
+          <li><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+          <li class="last-item"><a href="https://www.facebook.com/profile.php?id=100003130020735" target="_blank"><i class="fa fa-facebook"></i></a></li>
         </ul>
       </div>
+      <!--//profile-->
+      <!-- <a class="btn btn-cta-primary pull-right" href="#" target="_blank"><i class="fa fa-paper-plane"></i> Contact Me</a> -->
     </div>
-  </nav>
+    <!--//container-->
+  </header>
+  <!--//header-->
+  <div class="container sections-wrapper">
+    <div class="row">
+      <div class="primary col-md-8 col-sm-12 col-xs-12">
+        {% block content %} {% endblock %}
+      </div>
+      <div class="secondary col-md-4 col-sm-12 col-xs-12">
+        <aside class="info aside section">
+          <div class="section-inner">
+            <h2 class="heading sr-only">基本信息</h2>
+            <div class="content">
+              <ul class="list-unstyled">
+                <!-- <li><i class="fa fa-map-marker"></i>
+                  <span class="sr-only">Location:</span>San Francisco, US</li> -->
+                <li><i class="fa fa-envelope-o"></i>
+                  <span class="sr-only">Email:</span><a href="#">lwy91127@hotmail.com</a></li>
+                <!-- <li><i class="fa fa-link"></i>
+                  <span class="sr-only">Website:</span><a href="#">http://www.website.com</a></li> -->
+              </ul>
+            </div>
+            <!--//content-->
+          </div>
+          <!--//section-inner-->
+        </aside>
+        <!--//aside-->
+        <aside class="education aside section">
+          <div class="section-inner">
+            <h2 class="heading">Education</h2>
+            <div class="content">
+              <div class="item">
+                <h3 class="title"><i class="fa fa-graduation-cap"></i>计算机科学</h3>
+                <h4 class="university">同济大学
+                  <span class="year">(2014-2017)</span>
+                </h4>
+              </div>
+              <!--//item-->
+              <div class="item">
+                <h3 class="title"><i class="fa fa-graduation-cap"></i>网络工程</h3>
+                <h4 class="university">浙江工业大学
+                  <span class="year">(2010-2014)</span>
+                </h4>
+              </div>
+              <!--//item-->
+            </div>
+            <!--//content-->
+          </div>
+          <!--//section-inner-->
+        </aside>
+        <!--//section-->
+        <aside class="blog aside section">
+          <div class="section-inner">
+            <h2 class="heading">最近文章</h2>
+            <!-- <p>You can use Sascha Depold's <a href="https://github.com/sdepold/jquery-rss" target="_blank">jQuery RSS plugin</a> to pull in your blog post feeds.</p>
+            <div id="rss-feeds" class="content">
 
-  <div class="container theme-showcase" role="man">
-    <div class="page-header">
-      <h1>My Blog</h1>
+            </div> -->
+            <!--//content-->
+          </div>
+          <!--//section-inner-->
+        </aside>
+        <!--//section-->
+      </div>
     </div>
-    {% block content %}
-    {% endblock %}
   </div>
   <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
   <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
   <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
   <script src="http://apps.bdimg.com/libs/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+  <!-- Javascript -->
+  <script type="text/javascript" src="/static/assets/plugins/jquery-1.11.2.min.js"></script>
+  <script type="text/javascript" src="/static/assets/plugins/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="/static/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/static/assets/plugins/jquery-rss/dist/jquery.rss.min.js"></script>
+  <!-- github activity plugin -->
+  <script type="text/javascript" src="/static/assets/plugins/github-activity/dist/mustache/mustache.min.js"></script>
+  <script type="text/javascript" src="/static/assets/plugins/github-activity/dist/github-activity-0.1.1.min.js"></script>
+  <!-- custom js -->
+  <script type="text/javascript" src="/static/assets/js/main.js"></script>
 </body>
 
 </html>

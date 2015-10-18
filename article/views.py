@@ -14,8 +14,4 @@ def detail(request,id):
     except Article.DoesNotExist:
         raise Http404
     return render(request,'post.html',{'post':post})
-
-def add(request,a,b):
-    sum = int(a) + int(b)
-    return HttpResponse(sum)
 # Create your views here.

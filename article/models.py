@@ -8,7 +8,7 @@ class Article(models.Model):
     date_time = models.DateTimeField(auto_now_add = True)
     content = models.TextField(blank = True, null = True)
 
-    def __str__(self):
+    def __unicode__(self):
         return self.title
 
     class Meta: #元选项设置时间降序排序
